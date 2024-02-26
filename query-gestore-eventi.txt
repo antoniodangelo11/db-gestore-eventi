@@ -12,7 +12,6 @@
 
 5 - Selezionare tutti gli eventi con una durata maggiore alle 2 ore (823)
 5 - SELECT * FROM events WHERE duration > '03:00:00' ORDER BY duration
-5 - SELECT * FROM events WHERE duration > '02:00:00' ORDER BY duration (946)
 
 6 - Selezionare tutti gli eventi, mostrando nome, data di inizio, ora di inizio, ora di fine e
 durata totale (1040)
@@ -48,11 +47,10 @@ festival-jazz-estivo, id: 2) specificando nome e cognome (13)
 
 15 - Selezionare tutti gli eventi sold out (dove il totale delle prenotazioni è uguale ai
 biglietti totali per l’evento) (18)
-15 - ELECT events.name, bookings.id FROM events JOIN bookings on events.id = bookings.event_id WHERE events.total_tickets = bookings.user_id;
+15 - SELECT events.name, bookings.id FROM events JOIN bookings on events.id = bookings.event_id WHERE events.total_tickets = bookings.user_id;
 
 16 - Selezionare tutte le location in ordine per chi ha ospitato più eventi (82)
 16 - SELECT locations.id, COUNT('number of events') FROM `locations` JOIN events ON events.location_id = locations.id GROUP BY locations.id ORDER BY COUNT('number of events');
-
 
 17 - Selezionare tutti gli utenti che si sono prenotati a più di 70 eventi (74)
 17 - SELECT users.first_name, users.last_name, COUNT('numero di prenotazioni') FROM `bookings` JOIN users ON user_id = users.id GROUP BY bookings.user_id HAVING COUNT('numero di prenotazioni') > 70;
